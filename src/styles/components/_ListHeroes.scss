@@ -1,0 +1,23 @@
+.Heores-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  grid-template-rows: auto;
+  gap: 10px;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.Heroe {
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  color: #000;
+}
+
+.Heroe img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
