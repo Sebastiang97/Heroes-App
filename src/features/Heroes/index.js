@@ -12,18 +12,6 @@ const heoresSlice = createSlice({
       state.heroes = action.payload.heroes
       state.loading = action.payload.loading
     },
-
-    // findHeroeById: (state, action) => {
-    //   state.heroe = {}
-    //   console.log(state.heroes)
-    //   state.heroes.map((heroe) => {
-    //     if (heroe.id === action.payload.id) {
-    //       state.heroe.name = heroe.name
-    //       state.heroe.id = heroe.id
-    //       state.heroe.description = heroe.description
-    //     }
-    //   })
-    // },
   },
 })
 

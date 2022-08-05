@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import getAllHeroes from 'services/getAllHeroes'
 import { useDispatch, useSelector } from 'react-redux'
 import { setHeroes } from 'features/Heroes'
@@ -21,6 +21,6 @@ export const useCharacters = ({ search }) => {
         })
       )
     })
-  }, [search, setHeroes])
+  }, [search, dispatch])
   return { heroes }
 }
