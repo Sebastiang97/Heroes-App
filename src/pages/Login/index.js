@@ -1,4 +1,4 @@
-import { logout, signInWithGoogle } from 'features/auth/a'
+import { logout, signInWithGoogle } from 'features/auth/'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 

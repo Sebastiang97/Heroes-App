@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+export * from './signInWithGoogle.js'
 
 const authSlice = createSlice({
   name: 'auth',
