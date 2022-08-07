@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Favorites } from 'components/Favorites'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 export const Heroe = ({
   name,
@@ -10,6 +10,7 @@ export const Heroe = ({
   resourceURI,
   isFavorite,
 }) => {
+  const { pathname } = useLocation()
   const hero = { name, id, url, description, resourceURI }
   return (
     <div className='Heroe'>
@@ -20,7 +21,9 @@ export const Heroe = ({
           <h3>Marvel Commics</h3>
         </div>
       </Link>
-      <Favorites isFavorite={isFavorite} hero={hero} />
+      {pathname !== '/favorites' && (
+        <Favorites isFavorite={isFavorite} hero={hero} />
+      )}
     </div>
   )
 }

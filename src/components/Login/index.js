@@ -2,6 +2,7 @@ import React from 'react'
 import { logout, signInWithGoogle } from 'features/auth/'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteAllHeroesFav } from 'features/Heroes'
+import { Link } from 'react-router-dom'
 
 export const Login = () => {
   const dispatch = useDispatch()
@@ -21,7 +22,7 @@ export const Login = () => {
     <>
       {logged ? (
         <>
-          <a className='perfil'>{user.displayName}</a>
+          <Link to='/favorites'>{user.displayName}</Link>
           <a onClick={handleLogout}>logout </a>
         </>
       ) : (

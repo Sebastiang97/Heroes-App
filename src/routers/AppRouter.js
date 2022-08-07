@@ -11,6 +11,7 @@ import { logout, signIn } from 'features/auth'
 import { useDispatch } from 'react-redux'
 import { getHeroesFav } from 'features/Heroes/getHeroesFav'
 import { NotFound } from 'pages/NotFound'
+import { Favorites } from 'pages/Favorites'
 
 export const AppRouter = () => {
   const dispatch = useDispatch()
@@ -35,6 +36,7 @@ export const AppRouter = () => {
         <Route path='/' element={<Home />} />
         <Route path='/search/:search' element={<Search />} />
         <Route path='/heroe/:id' element={<Details />} />
+        <Route path='/Favorites' element={<Favorites />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </>
