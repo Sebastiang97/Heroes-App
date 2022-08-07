@@ -13,13 +13,16 @@ export const SearchResults = () => {
   const handleChange = (event) => setOnChange(event.target.value)
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type='text'
-        value={input}
-        placeholder='Busca un hero....'
-        onChange={handleChange}
-      />
-    </form>
+    <div className='Search-content'>
+      <form onSubmit={handleSubmit}>
+        <input
+          type='text'
+          value={input}
+          placeholder='Search a Hero'
+          onChange={handleChange}
+          autoComplete='off'
+        />
+      </form>
+    </div>
   )
 }

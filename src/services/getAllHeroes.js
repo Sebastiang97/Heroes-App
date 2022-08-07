@@ -1,11 +1,15 @@
 import { api_key, base_url } from './config'
 
-const getAllHeroes = ({ search = '', limit = 25 }) => {
+const getAllHeroes = ({ search = '', limit = 25, pages = 0 }) => {
   let apiUrl = ''
   if (search === '') {
-    apiUrl = `${base_url}/characters?apikey=${api_key}&limit=${limit}`
+    apiUrl = `${base_url}/characters?apikey=${api_key}&limit=${limit}&offset=${
+      pages * limit
+    }`
   } else {
-    apiUrl = `${base_url}/characters?nameStartsWith=${search}&apikey=${api_key}&limit=${limit}`
+    apiUrl = `${base_url}/characters?nameStartsWith=${search}&apikey=${api_key}&limit=${limit}&offset=${
+      pages * limit
+    }`
   }
 
   return fetch(apiUrl)

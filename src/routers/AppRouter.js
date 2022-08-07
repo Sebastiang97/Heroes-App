@@ -1,23 +1,41 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { Home } from 'pages/Home'
 import { Search } from 'pages/Search'
 import { Details } from 'pages/Details'
 import { Navbar } from 'components/Navbar'
 import { SearchResults } from 'components/SearchResults'
-import { Login } from 'pages/Login'
+import { onAuthStateChanged } from 'firebase/auth'
+import { auth as authFirebase } from 'dataFirebase/config'
+import { logout, signIn } from 'features/auth'
+import { useDispatch } from 'react-redux'
+import { getHeroesFav } from 'features/Heroes/getHeroesFav'
+import { NotFound } from 'pages/NotFound'
 
 export const AppRouter = () => {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    onAuthStateChanged(authFirebase, async (res) => {
+      const { uid, email, photoURL, displayName } = res
+      if (!res) {
+        return dispatch(logout())
+      }
+      const user = { uid, email, photoURL, displayName }
+      dispatch(signIn({ user }))
+      dispatch(getHeroesFav())
+    })
+  }, [])
+
   return (
     <>
       <Navbar />
       <SearchResults />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/login' element={<Login />} />
         <Route path='/search/:search' element={<Search />} />
         <Route path='/heroe/:id' element={<Details />} />
-        <Route path='*' element={<h4>No encontrado</h4>} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </>
   )

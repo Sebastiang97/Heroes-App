@@ -2,7 +2,7 @@ import { database } from 'dataFirebase/config'
 import { collection, getDocs } from 'firebase/firestore'
 import { setFavHeroes } from '.'
 
-export const getHeroesFav = (hero) => {
+export const getHeroesFav = () => {
   return async (dispatch, getState) => {
     // dispatch(signIn(result))
 
@@ -15,7 +15,7 @@ export const getHeroesFav = (hero) => {
     const heroesFav = []
 
     docs.forEach((doc) => {
-      heroesFav.push({ id: doc.id, heroe: doc.data() })
+      heroesFav.push({ uidDoc: doc.id, heroe: doc.data() })
     })
 
     dispatch(setFavHeroes(heroesFav))

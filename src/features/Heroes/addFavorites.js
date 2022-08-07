@@ -1,16 +1,13 @@
 import { database } from 'dataFirebase/config'
 import { collection, doc, setDoc } from 'firebase/firestore'
+import { updateFavHeroes } from '.'
 
 export const addFavorites = (hero) => {
   return async (dispatch, getState) => {
-    // dispatch(signIn(result))
-
     const { user } = getState().auth
 
-    console.log({ user, hero })
-
     const newDoc = doc(collection(database, `${user.uid}/HeroesApi/Heroes`))
-    const res = await setDoc(newDoc, hero)
-    console.log({ newDoc, res })
+    await setDoc(newDoc, hero)
+    dispatch(updateFavHeroes({ uidDoc: newDoc.id, heroe: hero }))
   }
 }
