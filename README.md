@@ -3,11 +3,17 @@
 Se realiza todo entorno a los personajes de la api https://developer.marvel.com/docs
 
 > Se Realiza con scroll infinito
+
 > Se realiza con React
+
 > Implementacion en Redux  
+
 > Se utiliza la Autenticacion de Firebase auth, utilizando el gmail
+
 > Se utiliza Sass para los estilos
+
 > Se añade Lista de Favoritos
+
 
 # Getting Started with Create React App
 
